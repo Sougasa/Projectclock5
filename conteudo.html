@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projectclock Conteúdo - Overclock</title>
+  <script>
+    // Aplica darkmode antes do CSS carregar
+    if (localStorage.getItem('tema') === 'dark') {
+      document.body.classList.add('darkmode');
+    }
+  </script>
+  <link rel="stylesheet" href="theme1.css" id="theme-style">
+  <link rel="icon" href="imgs/icon-projectclock.ico" type="image/x-icon">
+</head>
+<body>
+  <div class="topbar">
+    <button onclick="alternarTema()">Alternar Modo</button>
+    <span>projectclockv@gmail.com | <strong>(11) 99130-4417</strong></span>
+    <b>&copy; Projectclock</b>
+  </div>
+
+  <div class="container">
+    <aside class="sidebar" aria-label="Menu lateral">
+      <div class="tituloside">
+        <h2>Menu</h2>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" data-index="1">Início</a></li>
+          <li><a href="conteudo.html" data-index="2" class="active">Conteúdo</a></li>
+          <li><a href="ajude.html" data-index="3">Ajude-nos</a></li>
+          <li><a href="contato.html" data-index="4">Contato</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="conteudo">
+        <div class="titulomain">
+          <h1>Guia Completo sobre Overclocking</h1>
+        </div>
+
+        <!-- Sumário -->
+        <div class="sumario">
+          <h2>Escolha um tópico:</h2>
+          <ul>
+            <li><button onclick="mostrarConteudo('oque')">O que é Overclocking?</button></li>
+            <li><button onclick="mostrarConteudo('como')">Como Fazer Overclocking</button></li>
+            <li><button onclick="mostrarConteudo('ram')">Overclock de Memória RAM</button></li>
+            <li><button onclick="mostrarConteudo('ferramentas')">Ferramentas e Benchmarks</button></li>
+            <li><button onclick="mostrarConteudo('riscos')">Riscos e Benefícios</button></li>
+            <li><button onclick="mostrarConteudo('extremo')">Overclock Extremo</button></li>
+           <li><button onclick="mostrarConteudo('tudo')">Conteúdo Digital</button></li>
+          </ul>
+        </div>
+
+        <!-- Área onde aparece o conteúdo escolhido -->
+        <div id="conteudo-dinamico" class="conteudo-dinamico">
+          <p>Selecione um tópico no sumário para ver o conteúdo.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <aside class="copyright-sidebar">
+    <p>&copy; 2025 Projectclock. Todos os direitos reservados.</p>
+    
+  </aside>
+
+  <script src="theme.js"></script>
+
+  <script>
+    // Conteúdos organizados em objeto
+    const conteudos = {
+      oque: `
+        <h2>O Que É Overclocking?</h2>
+        <p>Overclocking é a prática de forçar um componente de computador, como a CPU ou a GPU, a funcionar a uma velocidade maior do que a especificada pelo fabricante...</p>
+      `,
+      como: `
+        <h2>Como Funciona: O Processo de Overclocking</h2>
+        <ol>
+          <li><strong>Ajuste da Frequência:</strong> Comece com um pequeno aumento na frequência.</li>
+          <li><strong>Teste de Estabilidade:</strong> Use softwares de estresse como Prime95 ou FurMark.</li>
+          <li><strong>Ajuste da Tensão:</strong> Se instável, aumente a tensão em pequenos incrementos.</li>
+          <li><strong>Monitoramento da Temperatura:</strong> Use HWMonitor ou Core Temp.</li>
+        </ol>
+      `,
+      ram: `
+        <h2>Overclocking de Memória RAM</h2>
+        <p>Overclockar a RAM envolve aumentar frequência, reduzir latência e ajustar tensão. Perfis XMP (Intel) ou DOCP (AMD) facilitam o processo.</p>
+      `,
+      ferramentas: `
+        <h2>Ferramentas e Benchmarks</h2>
+        <ul>
+          <li><strong>Softwares:</strong> MSI Afterburner, Intel XTU, AMD Ryzen Master.</li>
+          <li><strong>Monitoramento:</strong> HWMonitor, Core Temp.</li>
+          <li><strong>Benchmarks:</strong> 3DMark, Cinebench, SuperPi.</li>
+        </ul>
+      `,
+      riscos: `
+        <h2>Riscos e Benefícios</h2>
+        <ul>
+          <li><strong>Desgaste das Peças:</strong> Depende de tensão e temperatura.</li>
+          <li><strong>Garantia:</strong> Pode ser anulada em caso de danos.</li>
+          <li><strong>Consumo de Energia:</strong> Pode aumentar muito.</li>
+        </ul>
+      `,
+      extremo: `
+        <h2>Overclocking Extremo</h2>
+        <p>Técnicas como VMod e Shunt Mod são usadas com refrigeração extrema (Nitrogênio Líquido a -196°C). Competições como HWBOT World Tour premiam os melhores resultados.</p>
+      `,
+      tudo: `
+        <h2>Link para o nosso documentario:</h2>
+        <p>Clique aqui para acessar o nosso conteúdo digital</p>
+        <a href="https://docs.google.com/document/d/1US2Ql1TLgjLr7SdOhfNoJKm3JBt7BOk1F6lfpAHAV5M/edit?tab=t.0" target="_blank" rel="noopener noreferrer">Link do nosso conteudo</a>
+        
+        `
+    };
+
+    // Função que insere o conteúdo dinamicamente
+    function mostrarConteudo(topico) {
+      document.getElementById('conteudo-dinamico').innerHTML = conteudos[topico];
+    }
+  </script>
+</body>
+</html>
